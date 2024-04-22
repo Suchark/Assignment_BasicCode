@@ -72,7 +72,7 @@ class RefineCalculator {
         else
             equipment.ItemLevel = isVIP ? equipment.ItemLevel - 1 : 0;
     }
-
+    
     public bool IsSuccess(int chance) {
         Random random = new Random();
         int roll = random.Next(0, 100);
