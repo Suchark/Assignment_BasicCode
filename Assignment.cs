@@ -15,7 +15,8 @@ class RefineCalculator {
         for (int i = 0; i < equipments.Count; i++) {
             var equipment = equipments[i];
             if (equipment.ItemLevel < 10) {
-                if (equipment.Type == "Weapon") {
+                // Check type
+                if (equipment.Type == "Weapon") { 
                     RefineWeapon(equipment);
                 } else if (equipment.Type == "Armor") {
                     RefineArmor(equipment);
@@ -42,6 +43,7 @@ class RefineCalculator {
         if (equipment.RefineLevel < 5) {
             equipment.ItemLevel++;
         } else {
+            // Calculate the chance of success based on refine level
             int chance = (10 - equipment.RefineLevel) * 10;
             if (IsSuccess(chance))
                 equipment.ItemLevel++;
