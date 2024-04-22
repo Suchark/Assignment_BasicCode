@@ -12,7 +12,8 @@ class RefineCalculator {
     }
 
     public void RefineEquipments(List<Equipment> equipments) {
-        foreach (var equipment in equipments) {
+        for (int i = 0; i < equipments.Count; i++) {
+            var equipment = equipments[i];
             if (equipment.ItemLevel < 10) {
                 if (equipment.Type == "Weapon") {
                     RefineWeapon(equipment);
@@ -72,7 +73,7 @@ class RefineCalculator {
         else
             equipment.ItemLevel = isVIP ? equipment.ItemLevel - 1 : 0;
     }
-    
+
     public bool IsSuccess(int chance) {
         Random random = new Random();
         int roll = random.Next(0, 100);
